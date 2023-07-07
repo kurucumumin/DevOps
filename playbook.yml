@@ -1,6 +1,5 @@
----
-- name: Install JRE/JDK and Create Cron Job
-  hosts: localhost
+- name: Ansible Playbook
+  hosts: target_hosts
   become: true
   tasks:
     - name: Install JRE/JDK
@@ -12,9 +11,4 @@
       cron:
         name: My Java Program
         minute: "*/3"
-        job: 'java -jar C:\Users\Pc\Documents\GitHub\localdevelopment\localdevelopment\target\localdevelopment-1.0-SNAPSHOT.jar'
-
-
-
-
----
+        job: "java -jar /mnt/c/Users/Pc/Documents/GitHub/localdevelopment/localdevelopment/target/localdevelopment-1.0-SNAPSHOT.jar"
