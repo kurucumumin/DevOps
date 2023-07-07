@@ -1,0 +1,20 @@
+---
+- name: Install JRE/JDK and Create Cron Job
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Install JRE/JDK
+      apt:
+        name: openjdk-11-jre-headless
+        state: present
+
+    - name: Create Cron Job
+      cron:
+        name: My Java Program
+        minute: "*/3"
+        job: 'java -jar C:\Users\Pc\Documents\GitHub\localdevelopment\localdevelopment\target\localdevelopment-1.0-SNAPSHOT.jar'
+
+
+
+
+---
